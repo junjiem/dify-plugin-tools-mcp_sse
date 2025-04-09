@@ -1,5 +1,6 @@
 import json
 import logging
+import time
 from queue import Queue, Empty
 from threading import Event, Thread
 from typing import Any
@@ -125,6 +126,7 @@ class McpClient:
             "params": {}
         }
         self.send_message(notify_data)
+        time.sleep(0.1)
 
     def list_tools(self):
         tools_data = {
