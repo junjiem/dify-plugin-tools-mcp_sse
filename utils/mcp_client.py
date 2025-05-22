@@ -109,7 +109,8 @@ class McpSseClient(McpClient):
             url=self.endpoint_url,
             json=data,
             headers={'Content-Type': 'application/json', 'trace-id': data["id"] if "id" in data else ""},
-            timeout=self.timeout
+            timeout=self.timeout,
+            follow_redirects=True
         )
         response.raise_for_status()
         logging.debug(f"{self.name} - Client message sent successfully: {response.status_code}")
@@ -231,7 +232,8 @@ class McpStreamableHttpClient(McpClient):
             url=self.url,
             json=data,
             headers=headers,
-            timeout=self.timeout
+            timeout=self.timeout,
+            follow_redirects=True
         )
         self.session_id = response.headers.get("mcp-session-id", None)
         content_type = response.headers.get("content-type", "None")
