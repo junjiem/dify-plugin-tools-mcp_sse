@@ -12,3 +12,16 @@ description:
 extra:
   python:
     source: tools/mcp_list_tools.py
+parameters:
+  - name: servers_config
+    type: string
+    required: false
+    label:
+      en_US: MCP Servers config
+      zh_Hans: MCP 服务配置
+    human_description:
+      en_US: MCP Servers config, support multiple MCP services. 
+        (Optional, Filling in this field will overwrite the MCP Servers config entered during authorization.)
+      zh_Hans: MCP服务配置，支持多个MCP服务。
+        （选填，填写后将覆盖授权时填写的MCP服务配置。）
+    form: llm

@@ -12,7 +12,7 @@ from utils.mcp_client import McpClients
 class McpTool(Tool):
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
-        servers_config_json = self.runtime.credentials.get("servers_config", "")
+        servers_config_json = tool_parameters.get("servers_config") or self.runtime.credentials.get("servers_config")
         if not servers_config_json:
             raise ValueError("Please fill in the servers_config")
         try:
