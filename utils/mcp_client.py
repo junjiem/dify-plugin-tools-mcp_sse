@@ -267,6 +267,8 @@ class McpSseClient(McpClient):
                     logger.info(f"message_id: {message_id}")
                     message = self.message_dict.pop(message_id, None)
                     logger.info(f"message: {message}")
+                    if message and message.get("method") == "ping":
+                        continue
                     return message
         return {}
 
@@ -566,8 +568,8 @@ class McpClients:
                                 "type": "string",
                                 "description": argument_description
                             }
-                            if "required" in prompt_argument:
-                                required.append(prompt_argument["required"])
+                            if prompt_argument.get("required", False):
+                                required.append(argument_name)
                         tool = {
                             "name": name,
                             "description": description,
