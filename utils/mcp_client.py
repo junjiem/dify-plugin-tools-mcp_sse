@@ -59,7 +59,7 @@ class McpClient(ABC):
             error = response["error"]
             # -32001: Unsupported method
             # -32601: Method not found
-            if error["code"] == {-32001, -32601}:
+            if error["code"] in {-32001, -32601}:
                 return []
             raise Exception(f"{self.name} - MCP Server tools/list error: {error}")
         tools = response.get("result", {}).get("tools", [])
@@ -96,7 +96,7 @@ class McpClient(ABC):
             error = response["error"]
             # -32001: Unsupported method
             # -32601: Method not found
-            if error["code"] == {-32001, -32601}:
+            if error["code"] in {-32001, -32601}:
                 return []
             raise Exception(f"{self.name} - MCP Server resources/list error: {error}")
         resources = response.get("result", {}).get("resources", [])
@@ -131,7 +131,7 @@ class McpClient(ABC):
             error = response["error"]
             # -32001: Unsupported method
             # -32601: Method not found
-            if error["code"] == {-32001, -32601}:
+            if error["code"] in {-32001, -32601}:
                 return []
             raise Exception(f"{self.name} - MCP Server resources/templates/list error: {error}")
         resources = response.get("result", {}).get("resourceTemplates", [])
@@ -150,7 +150,7 @@ class McpClient(ABC):
             error = response["error"]
             # -32001: Unsupported method
             # -32601: Method not found
-            if error["code"] == {-32001, -32601}:
+            if error["code"] in {-32001, -32601}:
                 return []
             raise Exception(f"{self.name} - MCP Server prompts/list error: {error}")
         prompts = response.get("result", {}).get("prompts", [])
