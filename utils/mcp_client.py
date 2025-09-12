@@ -222,7 +222,7 @@ class McpSseClient(McpClient):
                     match sse.event:
                         case "endpoint":
                             # self.endpoint_url = urljoin(self.url, sse.data)
-                            self.endpoint_url = urljoin(self.url.rstrip("/") + "/", sse.data.lstrip("/"))
+                            self.endpoint_url = urljoin(self.url.rstrip("/"), sse.data.lstrip("/"))
                             logger.info(f"{self.name} - Received endpoint URL: {self.endpoint_url}")
                             self._connected.set()
                             url_parsed = urlparse(self.url)
