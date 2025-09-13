@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/junjiem-dify-plugin-tools-mcp-sse-badge.png)](https://mseep.ai/app/junjiem-dify-plugin-tools-mcp-sse)
+
 ## Dify 1.0 Plugin MCP HTTP with SSE or Streamable HTTP transport Tools
 
 
